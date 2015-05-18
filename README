@@ -1,0 +1,32 @@
+========
+CodeWizard PS3 has been developed by Dnawrkshp using the Visual C# 2012 Express Edition IDE.
+
+The reason I made this is because I noticed that you needed to write PPC Assembly directly in hex instead of assembly.
+Since I am so used to using tools like PS2Dis and CodeDesigner to make subroutines (PS2), I chose to make something similar.
+I did my best to make an assembler/disassembler that was easy to add to and wasn't hard to understand.
+Though some of my methods are wonky, most of it works fairly well and accurately.
+So here are a collection of videos I made to help understand the source code of CodeWizard: 
+
+There aren't many supported instructions, but if anyone would like to add some feel free to.
+Just contact me in some way and/or commit your version to some repository.
+I can then implement it into the official version (if it hasn't already been done).
+
+The version number (#a.#b.#c.#d) is read like so:
+	#a: Application version
+	#b: Assembler version
+	#c: Disassembler version
+	#d: Emulator version
+Kind of messy so I will probably just change how that is read in the future...
+
+
+If you encounter any bugs, have ideas, or simply want to say thanks, please reply to the thread I made on ps3hax.net
+
+Hope this is helpful and enjoy!
+
+P.S. If you ever make a package include the following:
+	this README
+	Help.txt
+	Pseudo Instructions folder and its contents
+	CodeWizardPS3.exe
+	Anything else that is relevant to CodeWizard (I included some examples)
+	

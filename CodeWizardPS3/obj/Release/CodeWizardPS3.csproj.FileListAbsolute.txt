@@ -1,0 +1,34 @@
+C:\Users\dan\Documents\Visual Studio 2008\Projects\CodeWizardPS3\CodeWizardPS3\bin\Release\CodeWizardPS3.exe
+C:\Users\dan\Documents\Visual Studio 2008\Projects\CodeWizardPS3\CodeWizardPS3\bin\Release\CodeWizardPS3.pdb
+C:\Users\dan\Documents\Visual Studio 2008\Projects\CodeWizardPS3\CodeWizardPS3\obj\Release\ResolveAssemblyReference.cache
+C:\Users\dan\Documents\Visual Studio 2008\Projects\CodeWizardPS3\CodeWizardPS3\obj\Release\CodeWizardPS3.Main.resources
+C:\Users\dan\Documents\Visual Studio 2008\Projects\CodeWizardPS3\CodeWizardPS3\obj\Release\CodeWizardPS3.Properties.Resources.resources
+C:\Users\dan\Documents\Visual Studio 2008\Projects\CodeWizardPS3\CodeWizardPS3\obj\Release\CodeWizardPS3.csproj.GenerateResource.Cache
+C:\Users\dan\Documents\Visual Studio 2008\Projects\CodeWizardPS3\CodeWizardPS3\obj\Release\CodeWizardPS3.exe
+C:\Users\dan\Documents\Visual Studio 2008\Projects\CodeWizardPS3\CodeWizardPS3\obj\Release\CodeWizardPS3.pdb
+C:\Users\Dan\Documents\Visual Studio 2008\Projects\CodeWizardPS3\CodeWizardPS3\obj\Release\CodeWizardPS3.DebugPopup.resources
+C:\Users\Dan\Documents\Visual Studio 2008\Projects\CodeWizardPS3\CodeWizardPS3\obj\Release\CodeWizardPS3.InsBox.resources
+C:\Users\Dan\Documents\Visual Studio 2008\Projects\CodeWizardPS3\CodeWizardPS3\obj\Release\CodeWizardPS3.AboutBox.resources
+C:\Users\Dan\Documents\Visual Studio 2012\Projects\CodeWizardPS3 - New Colorizer\CodeWizardPS3\obj\Release\CodeWizardPS3.exe
+C:\Users\Dan\Documents\Visual Studio 2012\Projects\CodeWizardPS3 - New Colorizer\CodeWizardPS3\obj\Release\CodeWizardPS3.pdb
+C:\Users\Dan\Documents\Visual Studio 2012\Projects\CodeWizardPS3 - New Colorizer\CodeWizardPS3\bin\Release\CodeWizardPS3.exe.manifest
+C:\Users\Dan\Documents\Visual Studio 2012\Projects\CodeWizardPS3 - New Colorizer\CodeWizardPS3\bin\Release\CodeWizardPS3.application
+C:\Users\Dan\Documents\Visual Studio 2012\Projects\CodeWizardPS3 - New Colorizer\CodeWizardPS3\bin\Release\CodeWizardPS3.exe
+C:\Users\Dan\Documents\Visual Studio 2012\Projects\CodeWizardPS3 - New Colorizer\CodeWizardPS3\bin\Release\CodeWizardPS3.pdb
+C:\Users\Dan\Documents\Visual Studio 2012\Projects\CodeWizardPS3 - New Colorizer\CodeWizardPS3\bin\Release\FastColoredTextBox.dll
+C:\Users\Dan\Documents\Visual Studio 2012\Projects\CodeWizardPS3 - New Colorizer\CodeWizardPS3\bin\Release\JacksonSoft.CustomTabControl.dll
+C:\Users\Dan\Documents\Visual Studio 2012\Projects\CodeWizardPS3 - New Colorizer\CodeWizardPS3\bin\Release\FastColoredTextBox.xml
+C:\Users\Dan\Documents\Visual Studio 2012\Projects\CodeWizardPS3 - New Colorizer\CodeWizardPS3\obj\Release\CodeWizardPS3.csprojResolveAssemblyReference.cache
+C:\Users\Dan\Documents\Visual Studio 2012\Projects\CodeWizardPS3 - New Colorizer\CodeWizardPS3\obj\Release\CodeWizardPS3.AboutBox.resources
+C:\Users\Dan\Documents\Visual Studio 2012\Projects\CodeWizardPS3 - New Colorizer\CodeWizardPS3\obj\Release\CodeWizardPS3.ASMEmu.resources
+C:\Users\Dan\Documents\Visual Studio 2012\Projects\CodeWizardPS3 - New Colorizer\CodeWizardPS3\obj\Release\CodeWizardPS3.ConversionForm.resources
+C:\Users\Dan\Documents\Visual Studio 2012\Projects\CodeWizardPS3 - New Colorizer\CodeWizardPS3\obj\Release\CodeWizardPS3.CustomPIns.resources
+C:\Users\Dan\Documents\Visual Studio 2012\Projects\CodeWizardPS3 - New Colorizer\CodeWizardPS3\obj\Release\CodeWizardPS3.DebugPopup.resources
+C:\Users\Dan\Documents\Visual Studio 2012\Projects\CodeWizardPS3 - New Colorizer\CodeWizardPS3\obj\Release\CodeWizardPS3.Main.resources
+C:\Users\Dan\Documents\Visual Studio 2012\Projects\CodeWizardPS3 - New Colorizer\CodeWizardPS3\obj\Release\CodeWizardPS3.InsBox.resources
+C:\Users\Dan\Documents\Visual Studio 2012\Projects\CodeWizardPS3 - New Colorizer\CodeWizardPS3\obj\Release\CodeWizardPS3.OptionsForm.resources
+C:\Users\Dan\Documents\Visual Studio 2012\Projects\CodeWizardPS3 - New Colorizer\CodeWizardPS3\obj\Release\CodeWizardPS3.PPCReg.resources
+C:\Users\Dan\Documents\Visual Studio 2012\Projects\CodeWizardPS3 - New Colorizer\CodeWizardPS3\obj\Release\CodeWizardPS3.Properties.Resources.resources
+C:\Users\Dan\Documents\Visual Studio 2012\Projects\CodeWizardPS3 - New Colorizer\CodeWizardPS3\obj\Release\CodeWizardPS3.csproj.GenerateResource.Cache
+C:\Users\Dan\Documents\Visual Studio 2012\Projects\CodeWizardPS3 - New Colorizer\CodeWizardPS3\obj\Release\CodeWizardPS3.exe.manifest
+C:\Users\Dan\Documents\Visual Studio 2012\Projects\CodeWizardPS3 - New Colorizer\CodeWizardPS3\obj\Release\CodeWizardPS3.application

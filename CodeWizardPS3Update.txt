@@ -1,0 +1,8 @@
+1.2.4
+Fixed a bunch of assembling bugs that were caused by new NC format
+Fixed bug where new tab wouldn't have autocomplete
+Cleaned up emulator and assembler a bit
+Added AutoIndent
+Added tab support (cleaner formatting)
+Added new instructions:
+	divw, lwzx, stwx, ldx, stdx, lfd, stfd

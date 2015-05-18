@@ -1,0 +1,3 @@
+mflr
+%rA
+mfspr %rA, LR

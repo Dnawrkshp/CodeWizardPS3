@@ -1,0 +1,4 @@
+test
+%rD, %rA, %rB
+setreg %rA, 0x12345678
+addi %rD, %rA, %rB

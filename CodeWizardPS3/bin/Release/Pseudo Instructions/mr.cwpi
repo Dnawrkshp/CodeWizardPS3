@@ -1,0 +1,3 @@
+mr
+%rD, %rA
+ori %rD, %rA, 0

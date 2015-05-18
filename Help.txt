@@ -1,0 +1,48 @@
+Best read in something better than notepad :) (notepad++)
+
+Assembly:
+	Labels:
+		When referring to labels always put a : before the label name
+		Declare labels by ending the name with a :
+	Registers:
+		Registers can have the following prefixes: %, $
+	Values:
+		Hexadecimal values have to have one of the following prefixes: $, 0x
+		Decimal values should not have a prefix
+	Branches:
+		Unconditional branches (b, bl) will take a straight address or a label
+			b 0x002400C8, bl :loc_2400C8
+		Conditional branches (beq, bne) will take an offset (from the current address) or a label
+			beq cr4, 0x18, bne :loc_18
+	Commands:
+		Be sure to treat setreg as 2 lines of code. As it gets assembled as "lis ?, 0xHI16" "ori ?, ?, 0xLO16"
+		Both hook and hookl can only be called once. They should also be called before address is called
+		Both hook and hookl shouldn't be used unless you only use one hook. Otherwise it is much more reliable to use a b or bl instead
+	
+Disassembly:
+	Format:
+		The format MUST be in NetCheat PS3 format. If it is in another format use the Conversion tool in the Tools menu
+		Anything that isn't disassembled will appear as hexcode 0xZZZZZZZZ
+	Output:
+		All branches will branch to labels
+		ori r0, r0, 0 will be disassembled as nop
+		
+Short-cuts:
+	Assembly RTB:
+		Ctrl L:			Color everything in the RTB
+		Ctrl Z:			Redo (Use Ctrl-L after it to color everything)
+		Drag and Drop:	You can drag a file on the the assembly RTB to open it
+	Form:
+		Ctrl O:			Open file
+		Ctrl S:			Save file
+		Ctrl Shift S:	Save file as
+		F5:				Assemble
+		F6:				Disassemble
+		F7:				Emulate
+	Emulator:
+		F11:			Step Into
+		F10:			Step Over
+	Pseudo Instructions:
+		Delete (DEL):	Delete the pseudo instruction entirely
+		DblClick list	Adds another blank pseudo instruction
+	
