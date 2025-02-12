@@ -520,11 +520,11 @@ namespace CodeWizardPS3
             string updateVer = updateStr[0].Replace("\r", "").Replace("\n", "");
             bool update = int.Parse(newVer.Replace(".", "")) > int.Parse(cwVersion.Split(' ')[0].Replace(".", ""));
             string title = update ?
-                "CodeWizard PS3 Version " + updateVer + " is available for download.\nWould you like to update and restart CodeWizard?" :
+                "CodeWizard PS3 Version " + newVer + " is available for download.\nWould you like to update and restart CodeWizard?" :
                 "CodeWizard is up-to-date! Would you like to Force Update?";
             string updateArg = "";
             if (updateStr.Length > 1)
-                updateArg = String.Join(Environment.NewLine, updateStr);
+                updateArg = newVer + Environment.NewLine + String.Join(Environment.NewLine,  updateStr.Skip(1));
             else
                 updateArg = "";
 
@@ -583,13 +583,13 @@ namespace CodeWizardPS3
 
             try
             {
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                 string store = Path.GetTempFileName();
                 WebClient Client = new WebClient();
-                Client.DownloadFile(webpath, store);
+                Client.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0");
+                var response = Client.DownloadString(webpath);
 
-                string[] ver = File.ReadAllLines(store);
-                File.Delete(store);
-
+                string[] ver = response.Split(new char[] { '\n' }).Select(x => x.Trim()).ToArray();
                 return ver;
             }
             catch (Exception)
@@ -603,7 +603,9 @@ namespace CodeWizardPS3
             //FileInfo ncFI = new FileInfo(Application.ExecutablePath);
             string store = Application.StartupPath + "\\" + "cwps3UpdateDir.zip";
 
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             WebClient Client = new WebClient();
+            Client.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0");
             Client.DownloadFile(webpath, store);
 
             //Decompress rar
