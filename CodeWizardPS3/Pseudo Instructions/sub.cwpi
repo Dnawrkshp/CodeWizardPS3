@@ -1,0 +1,15 @@
+sub
+%rD, %rA, %rB
+/*
+Name:      Name of the p instruction
+Format:    Order of variables
+Assembly:  What the instruction translates to
+
+Variables can be registers or immediate values
+
+If you want to add instructions you have to modify the source code. I (Dnawrkshp) have no plans to add scipt-like support for this.
+
+Double-click to add and press your DEL key to delete.
+*/
+
+subf %rD, %rB, %rA

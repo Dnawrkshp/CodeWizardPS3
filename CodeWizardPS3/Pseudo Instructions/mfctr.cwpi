@@ -1,0 +1,3 @@
+mfctr
+%rA
+mfspr %rA, CTR
