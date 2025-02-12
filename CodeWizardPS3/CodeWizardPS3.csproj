@@ -18,7 +18,7 @@
     <SignAssembly>false</SignAssembly>
     <ManifestCertificateThumbprint>CF175AE372AE822A199B68768B59B447F5A060FE</ManifestCertificateThumbprint>
     <ManifestKeyFile>CodeWizardPS3_TemporaryKey.pfx</ManifestKeyFile>
-    <GenerateManifests>true</GenerateManifests>
+    <GenerateManifests>false</GenerateManifests>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
@@ -76,6 +76,12 @@
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>x86</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FastColoredTextBox, Version=2.10.16.0, Culture=neutral, processorArchitecture=MSIL">
@@ -231,7 +237,7 @@
     <EmbeddedResource Include="updateForm.resx">
       <DependentUpon>updateForm.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="CodeWizardPS3_TemporaryKey.pfx" />
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

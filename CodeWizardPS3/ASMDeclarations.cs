@@ -48,6 +48,7 @@ namespace CodeWizardPS3
         public const int typeFNAN = 9;          /* Float - all registers */
         public const int typeFOFI = 10;         /* Float - Offset Immediate */
         public const int typeFCND = 11;         /* Float - Compare */
+        public const int typeFONE = 12;         /* Float - first register */
 
         /* Register color */
         public struct RegCol
@@ -844,6 +845,7 @@ namespace CodeWizardPS3
                     {
                         case ASMDeclarations.typeNAN:
                         case ASMDeclarations.typeFNAN:
+                        case ASMDeclarations.typeFONE:
                         case ASMDeclarations.typeSPR:
                             for (y = 0; y < ASMDeclarations.ASMDef[x].shifts.Length; y++)
                                 retVal |= (uint)(regs[ASMDeclarations.ASMDef[x].order[y]] << ASMDeclarations.ASMDef[x].shifts[y]);
@@ -1485,24 +1487,28 @@ namespace CodeWizardPS3
 
         public static string DisASMReg(int index, uint val)
         {
+            const int MAX_REGISTERS = 5;
             if (ASMDef[index].shifts == null)
                 return "";
 
             int x = 0;
             string ret = "";
             string[] regs = null;
-            string preReg = "r";
+            string[] preRegs = Enumerable.Repeat("r", MAX_REGISTERS).ToArray();
             if (ASMDeclarations.ASMDef[index].type == typeFNAN || ASMDeclarations.ASMDef[index].type == typeFOFI)
-                preReg = "f";
+                preRegs = Enumerable.Repeat("f", MAX_REGISTERS).ToArray();
+            if (ASMDeclarations.ASMDef[index].type == typeFONE)
+                preRegs[0] = "f";
 
             switch (ASMDef[index].type)
             {
                 case typeNAN:
                 case typeFNAN:
+                case typeFONE:
                     regs = new string[ASMDef[index].shifts.Length];
 
                     for (x = 0; x < ASMDef[index].shifts.Length; x++)
-                        regs[ASMDef[index].order[x]] = preReg + GetStrFromBit(ASMDef[index].shifts[x], 5, val);
+                        regs[ASMDef[index].order[x]] = preRegs[x] + GetStrFromBit(ASMDef[index].shifts[x], 5, val);
                     break;
                 case typeBNC:
                     regs = new string[ASMDef[index].shifts.Length];
@@ -1553,7 +1559,7 @@ namespace CodeWizardPS3
 
 
                     for (x = 0; x < ASMDef[index].shifts.Length - 1; x++)
-                        regs[ASMDef[index].order[x]] = preReg + GetStrFromBit(ASMDef[index].shifts[x], 5, val);
+                        regs[ASMDef[index].order[x]] = preRegs[x] + GetStrFromBit(ASMDef[index].shifts[x], 5, val);
                     //In the case of a float the second register should be a GP register
                     regs[ASMDef[index].order[x - 1]] = regs[ASMDef[index].order[x - 1]].Replace("f", "r");
 
@@ -1566,7 +1572,7 @@ namespace CodeWizardPS3
                     regs = new string[ASMDef[index].shifts.Length];
 
                     for (x = 0; x < ASMDef[index].shifts.Length - 1; x++)
-                        regs[ASMDef[index].order[x]] = preReg + GetStrFromBit(ASMDef[index].shifts[x], 5, val);
+                        regs[ASMDef[index].order[x]] = preRegs[x] + GetStrFromBit(ASMDef[index].shifts[x], 5, val);
 
                     regs[ASMDef[index].order[x]] = "0x" + Main.sRight(val.ToString("X"), 4);
                     break;
@@ -1576,7 +1582,7 @@ namespace CodeWizardPS3
                     regs[ASMDef[index].order[0]] = StrToSPR(GetStrFromBit(ASMDef[index].shifts[0], 4, val));
 
                     for (x = 1; x < ASMDef[index].shifts.Length; x++)
-                        regs[ASMDef[index].order[x]] = preReg + GetStrFromBit(ASMDef[index].shifts[x], 5, val);
+                        regs[ASMDef[index].order[x]] = preRegs[x] + GetStrFromBit(ASMDef[index].shifts[x], 5, val);
                     break;
                 case typeBNCMP:
                     int BNCMPoff = 4 * int.Parse(GetStrFromBit(2, 14, val));
@@ -1611,7 +1617,7 @@ namespace CodeWizardPS3
                     if (ASMDef[index].name[ASMDef[index].name.Length - 1] == 'i')
                     {
                         for (x = y; x < ASMDef[index].shifts.Length - 1; x++)
-                            regs[ASMDef[index].order[x]] = preReg + GetStrFromBit(ASMDef[index].shifts[x], 5, val);
+                            regs[ASMDef[index].order[x]] = preRegs[x] + GetStrFromBit(ASMDef[index].shifts[x], 5, val);
 
                         regs[ASMDef[index].order[x]] = "0x" + Main.sRight(val.ToString("X"), 4);
                     }
@@ -1622,7 +1628,7 @@ namespace CodeWizardPS3
                     }
                     break;
                 case typeIMM5:
-                    regs = DisassembleRotate(index, preReg, val);
+                    regs = DisassembleRotate(index, preRegs[0], val);
                     break;
                 case typeFCND:
                     int fcndReg = int.Parse(GetStrFromBit(ASMDef[index + 1].shifts[0], 3, val));
@@ -3439,6 +3445,20 @@ namespace CodeWizardPS3
             ASMDef[x].type = typeOFI;
             ASMDef[x].help = asmHelp;
             ASMDef[x].title = "Store Doubleword (std)";
+            x++;
+
+            asmHelp = "Converts the float in frS to a single and stores it at (rA + rB)" + nl;
+            asmHelp += "stfsx frS, rA, rB :: MEM(rA + rB) = (Single)frS" + nl;
+            asmHelp += nl + "Example:" + nl;
+            asmHelp += "stfsx f1, r3, r5" + nl;
+            ASMDef[x].name = "stfsx";
+            ASMDef[x].opCode = 0x7C00052E;
+            ASMDef[x].opShift = new int[] { 6, 10 };
+            ASMDef[x].shifts = new int[3] { 21, 16, 11 };
+            ASMDef[x].order = new int[3] { 0, 1, 2 };
+            ASMDef[x].type = typeFONE;
+            ASMDef[x].help = asmHelp;
+            ASMDef[x].title = "Store Floating Point Single Indexed (stfsx)";
             x++;
 
             asmHelp = "Converts the float in frS to a single and stores it at (IMM + rB)" + nl;

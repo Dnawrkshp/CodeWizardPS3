@@ -1,3 +1,0 @@
-mtctr
-%rA
-mtspr CTR, %rA

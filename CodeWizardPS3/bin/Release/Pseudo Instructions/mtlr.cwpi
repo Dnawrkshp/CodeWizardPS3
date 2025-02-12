@@ -1,3 +1,0 @@
-mtlr
-%rA
-mtspr LR, %rA
