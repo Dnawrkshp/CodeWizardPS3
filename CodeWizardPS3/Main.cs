@@ -24,7 +24,7 @@ namespace CodeWizardPS3
 
         #region Declarations
 
-        string cwVersion = "1.2.6";
+        string cwVersion = "1.2.7";
 
         /* Errors */
         ListBox errorsLBox = new ListBox();
@@ -515,6 +515,7 @@ namespace CodeWizardPS3
         public void RunUpdateChecker(bool allowForce)
         {
             string[] updateStr = CheckForUpdate();
+            string newVerZipPath = updateStr[0].Split(' ').ElementAtOrDefault(1)?.Trim();
             string newVer = updateStr[0].Split(' ')[0].Replace("\r", "").Replace("\n", "");
             string updateVer = updateStr[0].Replace("\r", "").Replace("\n", "");
             bool update = int.Parse(newVer.Replace(".", "")) > int.Parse(cwVersion.Split(' ')[0].Replace(".", ""));
@@ -528,6 +529,10 @@ namespace CodeWizardPS3
                 updateArg = "";
 
             //string title = update ? "Update Available" : "Force Update?";
+
+            // no update
+            if (string.IsNullOrEmpty(newVerZipPath) || string.IsNullOrEmpty(newVer))
+                return;
 
             bool allow = false;
             if (allowForce || update)
@@ -568,13 +573,13 @@ namespace CodeWizardPS3
                     Screen.PrimaryScreen.WorkingArea.Height / 2 - (loadingFrm.Height / 2));
                 Application.DoEvents();
 
-                UpdateCWPS3();
+                UpdateCWPS3(newVerZipPath);
             }
         }
 
         public string[] CheckForUpdate()
         {
-            string webpath = "http://www.cod-orc.com/Dnawrkshp/CodeWizardPS3Update.txt";
+            string webpath = "https://raw.githubusercontent.com/Dnawrkshp/CodeWizardPS3/refs/heads/master/CodeWizardPS3Update.txt";
 
             try
             {
@@ -593,9 +598,8 @@ namespace CodeWizardPS3
             }
         }
 
-        public void UpdateCWPS3()
+        public void UpdateCWPS3(string webpath)
         {
-            string webpath = "http://www.cod-orc.com/Dnawrkshp/cwps3UpdateDir.zip";
             //FileInfo ncFI = new FileInfo(Application.ExecutablePath);
             string store = Application.StartupPath + "\\" + "cwps3UpdateDir.zip";
 
